@@ -1,32 +1,35 @@
-﻿// Napisz program, który odwróci liczbę (np. 1234 na 4321).
+﻿// Napisz program, który znajdzie maksymalną liczbę
+// spośród trzech podanych liczb.
 
-// I sposób
-var number = 5362;
+// Wersja 1 - działa dla liczb dodatnich.
+var a1 = 1;
+var b1 = 5;
+var c1 = 3;
 
-var numberToString = number.ToString();  // "5362"
+var max = 0;
 
-var stringToArray  = numberToString.ToArray();  // ['5', '3', '6', '2']
-
-var tab = stringToArray.Reverse(); // ['2', '6', '3', '5']
-
-foreach (var item in tab)
+if(a1 > max)
 {
-    Console.Write(item); 
+    max = a1;
 }
 
-Console.WriteLine(); // odstęp w konsoli 
-
-// II sposób 
-var numberr = 5362;
-
-var numberrToString = numberr.ToString();  // "5362"
-
-var numberrLength = numberrToString.Length; // 4
-
-
-for (int i = numberrLength - 1; i >= 0; i--)
+if(b1 > max)
 {
-    Console.Write(numberrToString[i]);
+    max = b1;
 }
 
+if(c1 > max)
+{
+    max = c1;
+}
 
+Console.WriteLine("Maksymalna liczba spośród trzech podanych to {0}.", max);
+
+// Wersja 2 - działa dla liczb ujemnych i dodatnich.
+var a2 = -5;
+var b2 = 2;
+var c2 = 4;
+var numbers = new List<int>() { a2, b2, c2};
+
+var maxx = numbers.Max();
+Console.WriteLine("Maksymalna liczba spośród trzech podanych to {0}.", maxx);
