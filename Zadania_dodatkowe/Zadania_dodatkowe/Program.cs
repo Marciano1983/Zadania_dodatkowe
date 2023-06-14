@@ -1,35 +1,27 @@
-﻿// Napisz program, który znajdzie maksymalną liczbę
-// spośród trzech podanych liczb.
+﻿// Gra w zgadywanie liczby
 
-// Wersja 1 - działa dla liczb dodatnich.
-var a1 = 1;
-var b1 = 5;
-var c1 = 3;
+Random random = new Random();
+var random_number = random.Next(0, 101);
+var attemts_number = 1;
 
-var max = 0;
-
-if(a1 > max)
+while (true)
 {
-    max = a1;
-}
+    Console.Write("Guess the drawn number: ");
+    var guessed_number = int.Parse(Console.ReadLine());
 
-if(b1 > max)
-{
-    max = b1;
-}
-
-if(c1 > max)
-{
-    max = c1;
-}
-
-Console.WriteLine("Maksymalna liczba spośród trzech podanych to {0}.", max);
-
-// Wersja 2 - działa dla liczb ujemnych i dodatnich.
-var a2 = -5;
-var b2 = 2;
-var c2 = 4;
-var numbers = new List<int>() { a2, b2, c2};
-
-var maxx = numbers.Max();
-Console.WriteLine("Maksymalna liczba spośród trzech podanych to {0}.", maxx);
+    if (guessed_number == random_number)
+    {
+        Console.WriteLine("Congratulations! You guessed it {0} times!", attemts_number);
+        break;
+    }
+    else if (guessed_number > random_number)
+    {
+        Console.WriteLine("Enter a lower number...");
+        attemts_number++;
+    }
+    else if (guessed_number < random_number)
+    {
+        Console.WriteLine("Enter a higher number...");
+        attemts_number++;
+    }
+};
